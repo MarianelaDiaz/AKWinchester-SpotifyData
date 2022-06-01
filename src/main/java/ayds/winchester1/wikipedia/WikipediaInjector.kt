@@ -1,6 +1,6 @@
-package ayds.winchester1.spotify
+package ayds.winchester1.wikipedia
 
-import ayds.winchester1.spotify.artistinfo.WikipediaArtistInfoInjector
+import ayds.winchester1.wikipedia.artistinfo.WikipediaArtistInfoInjector
 
 object WikipediaInjector {
     val wikipediaCardService: WikipediaCardService = WikipediaArtistInfoInjector.wikipediaCardService

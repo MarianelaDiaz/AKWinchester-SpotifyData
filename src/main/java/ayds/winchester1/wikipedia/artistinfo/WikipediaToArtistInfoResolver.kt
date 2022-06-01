@@ -1,8 +1,8 @@
-package ayds.winchester1.spotify.artistinfo
+package ayds.winchester1.wikipedia.artistinfo
 
+import ayds.winchester1.wikipedia.WikipediaArtistInfo
 import com.google.gson.Gson
 import com.google.gson.JsonObject
-import ayds.winchester1.spotify.WikipediaCard
 
 private const val SNIPPET = "snippet"
 private const val SEARCH = "search"
@@ -11,19 +11,17 @@ private const val QUERY = "query"
 private const val SOURCE = "Wikipedia"
 
 interface WikipediaToArtistInfoResolver {
-    fun getCardFromExternalData(serviceData: String?): WikipediaCard?
+    fun getCardFromExternalData(serviceData: String?): WikipediaArtistInfo?
 }
 
 internal class JsonToArtistInfoResolver() : WikipediaToArtistInfoResolver {
 
-    override fun getCardFromExternalData(serviceData: String?): WikipediaCard? =
+    override fun getCardFromExternalData(serviceData: String?): WikipediaArtistInfo? =
         try {
             serviceData?.getFirstItem()?.let { item ->
-                WikipediaCard(
-                    item.getInfo(),
-                    item.getPageId(),
-                    SOURCE,
-                    ""
+                WikipediaArtistInfo(
+                    item.getDescription(),
+                    item.getInfoUrl()
                 )
             }
         } catch (e: Exception) {
@@ -37,7 +35,7 @@ internal class JsonToArtistInfoResolver() : WikipediaToArtistInfoResolver {
         return items[0].asJsonObject
     }
 
-    private fun JsonObject.getInfo() : String = this[ayds.winchester1.spotify.artistinfo.SNIPPET].asString.replace("\\n", "\n")
+    private fun JsonObject.getDescription() : String = this[SNIPPET].asString.replace("\\n", "\n")
 
-    private fun JsonObject.getPageId() : String = this[ayds.winchester1.spotify.artistinfo.PAGE_ID].asString
+    private fun JsonObject.getInfoUrl() : String = this[PAGE_ID].asString
 }

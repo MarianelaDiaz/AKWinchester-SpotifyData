@@ -1,6 +1,6 @@
-package ayds.winchester1.spotify.artistinfo
+package ayds.winchester1.wikipedia.artistinfo
 
-import ayds.winchester1.spotify.WikipediaCardService
+import ayds.winchester1.wikipedia.WikipediaCardService
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 

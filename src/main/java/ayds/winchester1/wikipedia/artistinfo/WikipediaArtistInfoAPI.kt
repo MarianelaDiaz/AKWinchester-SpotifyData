@@ -1,4 +1,4 @@
-package ayds.winchester1.spotify.artistinfo
+package ayds.winchester1.wikipedia.artistinfo
 
 import retrofit2.Call
 import retrofit2.http.GET
