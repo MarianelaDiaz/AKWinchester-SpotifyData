@@ -8,6 +8,7 @@ private const val SNIPPET = "snippet"
 private const val SEARCH = "search"
 private const val PAGE_ID = "pageid"
 private const val QUERY = "query"
+private const val LOGO_URL= "upload.wikimedia.org/wikipedia/commons/8/8c/Wikipedia-logo-v2-es.png"
 
 interface WikipediaToArtistInfoResolver {
     fun getCardFromExternalData(serviceData: String?): WikipediaArtistInfo?
@@ -20,7 +21,8 @@ internal class JsonToArtistInfoResolver() : WikipediaToArtistInfoResolver {
             serviceData?.getFirstItem()?.let { item ->
                 WikipediaArtistInfo(
                     item.getDescription(),
-                    item.getInfoUrl()
+                    item.getInfoUrl(),
+                    getLogoUrl(),
                 )
             }
         } catch (e: Exception) {
@@ -37,4 +39,6 @@ internal class JsonToArtistInfoResolver() : WikipediaToArtistInfoResolver {
     private fun JsonObject.getDescription() : String = this[SNIPPET].asString.replace("\\n", "\n")
 
     private fun JsonObject.getInfoUrl() : String = this[PAGE_ID].asString
+
+    private fun getLogoUrl() : String = LOGO_URL
 }
