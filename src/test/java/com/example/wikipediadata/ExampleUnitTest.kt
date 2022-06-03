@@ -1,4 +1,4 @@
-package com.example.spotifydata
+package com.example.wikipediadata
 
 import org.junit.Test
 
