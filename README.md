@@ -5,7 +5,7 @@
 #### Instalación
 
 Agregar el submódulo al proyecto:
-git submodule add https://github.com/MarianelaDiaz/AKWinchester-WikipediaData.git libs/SpotifyData
+git submodule add https://github.com/MarianelaDiaz/AKWinchester-WikipediaData.git libs/WikipediaData
 
 Incluir las siguientes lineas de código en archivo settings.gradle del proyecto:
 
