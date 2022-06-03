@@ -4,7 +4,9 @@
 
 #### Instalación
 
-Crear la carpeta /libs en la carpeta raiz del proyecto
+Agregar el submódulo al proyecto:
+git submodule add https://github.com/MarianelaDiaz/AKWinchester-WikipediaData.git libs/SpotifyData
+
 Incluir las siguientes lineas de código en archivo settings.gradle del proyecto:
 
     include ':WikipediaData'
@@ -32,4 +34,8 @@ Este módulo provee la función de obtener información sobre determinada artist
         val wikipediaCard = wikipediaCardService.getCard(artistName)
        
 * Se obtendrá un objeto de tipo WikipediaArtistInfo con la información del artista.
-        
+
+#### Edge cases:
+
+Sin conexión: La consulta getCard(artistName) retorna nulo.
+Sin resultado: La consulta getCard(artistName) retorna nulo.
