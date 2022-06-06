@@ -11,12 +11,12 @@ private const val QUERY = "query"
 private const val LOGO_URL= "https://upload.wikimedia.org/wikipedia/commons/8/8c/Wikipedia-logo-v2-es.png"
 
 interface WikipediaToArtistInfoResolver {
-    fun getCardFromExternalData(serviceData: String?): WikipediaArtistInfo?
+    fun getArtistInfoFromExternalData(serviceData: String?): WikipediaArtistInfo?
 }
 
 internal class JsonToArtistInfoResolver() : WikipediaToArtistInfoResolver {
 
-    override fun getCardFromExternalData(serviceData: String?): WikipediaArtistInfo? =
+    override fun getArtistInfoFromExternalData(serviceData: String?): WikipediaArtistInfo? =
         try {
             serviceData?.getFirstItem()?.let { item ->
                 WikipediaArtistInfo(

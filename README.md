@@ -25,17 +25,17 @@ presionar en Sync Gradle ![image](https://user-images.githubusercontent.com/2126
 Este módulo provee la función de obtener información sobre determinada artista por medio de la api ofrecida por Wikipedia.
 
 #### Pasos para obtener una descripcion sobre un artista en Wikipedia:
-* Obtener una instancia de wikipediaCardService, por medio del método WikipediaInjector:
+* Obtener una instancia de wikipediaService, por medio del método WikipediaInjector:
     
-        WikipediaInjector.wikipediaCardService
+        WikipediaInjector.wikipediaService
 
-* Luego se invoca el método **getCard** a la instancia **wikipediaCardService**, suministrándole el nombre del artista.
+* Luego se invoca el método **getArtistInfo** a la instancia **wikipediaService**, suministrándole el nombre del artista.
 
-        val wikipediaCard = wikipediaCardService.getCard(artistName)
+        val wikipediaService = wikipediaService.getArtistInfo(artistName)
        
 * Se obtendrá un objeto de tipo WikipediaArtistInfo con la información del artista.
 
 #### Edge cases:
 
-Sin conexión: La consulta getCard(artistName) retorna nulo.
-Sin resultado: La consulta getCard(artistName) retorna nulo.
+Sin conexión: La consulta getArtistInfo(artistName) retorna nulo.
+Sin resultado: La consulta getArtistInfo(artistName) retorna nulo.

@@ -1,6 +1,6 @@
 package ayds.winchester1.wikipedia.artistinfo
 
-import ayds.winchester1.wikipedia.WikipediaCardService
+import ayds.winchester1.wikipedia.WikipediaService
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 
@@ -13,7 +13,7 @@ object WikipediaArtistInfoInjector {
         .build()
     private val wikipediaArtistInfoAPI = wikipediaAPIRetrofit.create(WikipediaArtistInfoAPI::class.java)
     private val wikipediaToArtistInfoResolver: WikipediaToArtistInfoResolver = JsonToArtistInfoResolver()
-    val wikipediaCardService: WikipediaCardService = WikipediaArtistCardServiceImpl(
+    val wikipediaService: WikipediaService = WikipediaArtistServiceImpl(
         wikipediaArtistInfoAPI,
         wikipediaToArtistInfoResolver
     )

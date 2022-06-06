@@ -1,17 +1,17 @@
 package ayds.winchester1.wikipedia.artistinfo
 
 import ayds.winchester1.wikipedia.WikipediaArtistInfo
-import ayds.winchester1.wikipedia.WikipediaCardService
+import ayds.winchester1.wikipedia.WikipediaService
 import retrofit2.Response
 
-internal class WikipediaArtistCardServiceImpl (
+internal class WikipediaArtistServiceImpl (
     private val wikipediaArtistInfoAPI: WikipediaArtistInfoAPI,
     private val wikipediaToArtistInfoResolver: WikipediaToArtistInfoResolver,
-    ) : WikipediaCardService {
+    ) : WikipediaService {
 
-        override fun getCard(artistName: String?): WikipediaArtistInfo? {
+        override fun getArtistInfo(artistName: String?): WikipediaArtistInfo? {
             val callResponse = getArtistInfoFromService(artistName)
-            return wikipediaToArtistInfoResolver.getCardFromExternalData(callResponse.body())
+            return wikipediaToArtistInfoResolver.getArtistInfoFromExternalData(callResponse.body())
         }
 
         private fun getArtistInfoFromService(query: String?): Response<String> {
